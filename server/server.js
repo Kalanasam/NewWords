@@ -19,6 +19,19 @@ app.post('/saveCurrent',function (req,res){
     database.insert(data,done)
     })
 
+app.get('/getSaved', function (req, res){
+    // setup database query
+    var query = {}
+
+    var done = function(err, data) {
+
+        console.log("I just read from the database")
+        res.send(data)
+
+    }
+    database.find(query, done)
+})
+
 var PORT = 8080
 app.listen(PORT)
 
